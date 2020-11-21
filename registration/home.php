@@ -43,6 +43,8 @@
         //echo $_SESSION['article1'];
         ?></h3>
         <br><input name="logout" type="submit" class="logoutButton" value="Logout"/>
+        <br><br><a href="changePassword.php"><input name="changePassword" type="button" class="changePword" value="Change Password"/></a>
+        <br><br><a href="changeUsername.php"><input name="changeUsername" type="button" class="changePword" value="Change Username"/></a>
         <br><br><a href="deleteConfirm.php"><input name="deleteUser" type="button" class="back" value="Delete Account"/></a>
 
         </form>
