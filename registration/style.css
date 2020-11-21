@@ -1,0 +1,111 @@
+.background {
+    width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 5px;
+    border-radius: 5px ;
+    border: solid #179ab7;
+    border-style: solid;
+
+}
+
+.inputvalues {
+
+    width: 400px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+}
+
+.loginButton {
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: lightblue;
+    
+
+
+}
+
+
+.logoutButton {
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: lightblue;
+    
+
+
+}
+.registerButton {
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: lightgreen
+
+    
+}
+
+.signUpButton {
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: lightblue
+
+    
+}
+
+.back {
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: lightgreen
+
+    
+}
+
+.inputvalues:hover {
+
+    opacity: 70%
+}
+
+.registerButton:hover {
+
+    opacity: 70%
+}
+
+.loginButton:hover {
+
+    opacity: 70%
+}
+
+.signUpButton:hover {
+
+    opacity: 70%
+}
+
+.back:hover {
+
+    opacity: 70%
+}
+
+.logout:hover {
+
+    opacity: 70%
+}
+
+.linksA {
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
