@@ -23,7 +23,7 @@
         <br><br><label>Confirm Password:</label>
         <br><input name="cpassword" type="password" class="inputvalues" placeholder="Confirm Password" required/>
         <br><br><input name="submitButton" type="submit"  class="signUpButton" value="Sign Up"/>
-        <br><br><a href="register.php"><input type="button" class="back" value="Back to Login"/>
+        <br><br><a href="register.php"><input type="button" class="back" value="Back to Login"/></a>
 
     </form></center>
 

@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <title>User Registraton</title>
+    <title>User Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type=text/css href="style.css">
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" />
@@ -42,16 +42,16 @@
 
         //echo $_SESSION['article1'];
         ?></h3>
-
         <br><input name="logout" type="submit" class="logoutButton" value="Logout"/>
+        <br><br><a href="deleteConfirm.php"><input name="deleteUser" type="button" class="back" value="Delete Account"/></a>
+
         </form>
         
-
     </center>
     
     <div class="container">
         <div class="content has-text-centered">
-            <h1 class="title has-text-info is-family-secondary">Helping Traders Filter For Stock Specific News</h1>
+        <br><h1 class="title has-text-info is-family-secondary">Helping Traders Filter For Stock Specific News</h1>
             <h5 class="subtitle has-text-grey is-italic">Find the news that matters</h5>
         </div>
         <div class="tabs is-medium is-centered">
@@ -131,6 +131,7 @@
 
                     if($query) {
                         $_SESSION['article1']=$article1;
+                        
                     } else {
                         echo '<script type="text/javascript"> alert("Unsuccessful") </script>';
                     }
@@ -146,3 +147,5 @@
     renderSite();
     </script>
 </html>
+
+

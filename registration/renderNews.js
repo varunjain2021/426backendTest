@@ -68,3 +68,5 @@ export const renderSite = function() {
 $(function() {
     renderSite();
 });
+
+//        <br><br><a href="deleteConfirm.php"><input name="deleteUser" type="button" class="back" value="Delete Account"/><

@@ -70,11 +70,25 @@
     padding: 5px;
     border-radius: 5px;
     border-style: hidden;
-    background-color: lightgreen
+    background-color: lightcoral
 
     
 }
 
+.profDel{
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: red;
+
+}
+
+.profDel:hover {
+    opacity: 70%
+
+}
 .inputvalues:hover {
 
     opacity: 70%
@@ -100,7 +114,7 @@
     opacity: 70%
 }
 
-.logout:hover {
+.logoutButton:hover {
 
     opacity: 70%
 }
