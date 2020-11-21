@@ -42,7 +42,7 @@
                     echo '<script type="text/javascript"> alert("User Exists") </script>';
                 } else 
                 {
-                    $query = "insert into userInfoTable values('$username', '$password', 'null')";
+                    $query = "insert into userInfoTable values('$username', '$password', 'www.null.com')";
                     $queryRun = mysqli_query($con, $query);
 
                     if($query) {

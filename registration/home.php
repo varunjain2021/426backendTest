@@ -48,7 +48,7 @@
         
 
     </center>
-    </div>
+    
     <div class="container">
         <div class="content has-text-centered">
             <h1 class="title has-text-info is-family-secondary">Helping Traders Filter For Stock Specific News</h1>
@@ -82,6 +82,7 @@
             </p>
           </div>
     </div>
+    </div>
 </section>
 
         <section class="section">
@@ -98,7 +99,7 @@
                 header('location:register.php');
             }
 
-            /*
+            
 
             if(isset($_POST['saveArticle'])) {
                 $username = $_SESSION['username'];
@@ -118,7 +119,7 @@
 
                     }
             }
-            */
+            
 
             if(isset($_GET['save'])) {
                 $result = $_GET['save']; 
