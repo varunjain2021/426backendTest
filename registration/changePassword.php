@@ -47,7 +47,7 @@
             if ($newPassword==$confirmNewpassword) {
                 $query = "update userInfoTable set password='$newPassword' where username='$username'";
                 $queryRun = mysqli_query($con, $query);
-                header('location:home.php');
+                header('location:watchList.php');
             } else {
                 echo '<script type="text/javascript"> alert("New Password does not match to Confirm Password") </script>';
             }

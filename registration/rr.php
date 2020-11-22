@@ -44,9 +44,14 @@
                 {
                     $query = "insert into userInfoTable values('$username', '$password', 'www.null.com')";
                     $queryRun = mysqli_query($con, $query);
+                    $var = NULL;
+
+                    
 
                     if($query) {
                         echo '<script type="text/javascript"> alert("User Registered") </script>';
+                        $query = "insert into userTickers values('$username', '$var', '$var', '$var', '$var', '$var')";
+                        $queryRun = mysqli_query($con, $query);
 
                     } else {
                         echo '<script type="text/javascript"> alert("Unsuccessful") </script>';
