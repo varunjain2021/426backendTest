@@ -12,7 +12,7 @@
     <link rel="stylesheet" type=text/css href="style.css">
 
 </head>
-<body style = "background-color: #e8c97e">
+<body style = "background-color: #add8e6">
     <div class=background>
         <center><h2>Are you sure you want to delete?</h2>
 
@@ -29,6 +29,8 @@
         $username = $_SESSION['username'];
 
         $query = "delete from userInfoTable where username='$username'";
+        $queryRun = mysqli_query($con, $query);
+        $query = "delete from allSaved where username='$username'";
         $queryRun = mysqli_query($con, $query);
 
         if($query) {

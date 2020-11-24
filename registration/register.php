@@ -11,7 +11,7 @@
     <link rel="stylesheet" type=text/css href="style.css">
 
 </head>
-<body style = "background-color: #e8c97e">
+<body style = "background-color: #add8e6">
     <div class=background>
         <center><h2>Login Form</h2>
         <form action="register.php" method="post">

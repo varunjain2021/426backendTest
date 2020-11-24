@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <section class="section">
     <div class="container">
         <div class="content has-text-centered">
@@ -28,96 +29,92 @@
         <div class="tabs is-medium is-centered">
             <ul>
               <li><a>News Feed Search</a></li>
-              <li><a href="watchList.php">Profile</a></li>
+              <li><a href="watchList.php" id="clearNews">Profile</a></li>
+              <li><a href="newsFeed.php" id="everyone">News Feed</a></li>
             </ul>
         </div>
-        
         <div class="field has-addons has-addons-centered">
-        
             <p class="control">
+                <input class = "input" placeholder = "% Change in Price" id = "determineChange">
+                <!--
               <span class="select">
                 <select placeholder = "% Change in Price" id = "determineChange">
-                  <option class = "change">3</option>
-                  <option class = "change">5</option>
-                  <option class = "change">-3</option>
-                  <option class = "change">-5</option>
+                    
+                    
+                    <option class = "change">3</option>
+                    <option class = "change">5</option>
+                    <option class = "change">10</option>
+                    <option class = "change">-3</option>
+                    <option class = "change">-5</option>
+                    <option class = "change">-10</option>
+                    
                 </select>
               </span>
+              -->
             </p>
             <p class="control" id = "crazyVibes" >
-              <input class="input" type="text" placeholder="Stock Ticker (eg. AAPL)" id = "ticker" name="ticker">
-              
+              <input class="input" type="text" placeholder="Stock Ticker (eg. AAPL)" id = "ticker" required/>
               <div id = "mo"></div>
             </p>
-
-            <p class="control">
-            <input class="button is-primary" type="button" id="findDate" value="Search For News"/>
-            </p>     
             
-        </div>
-        
-        <div id = "listOfButtons"></div>
-        
-        
-        
-    </section>
+            <p class="control">
+              <a class="button is-primary" id="findDate">
+                Search For News
+              </a>
+            </p>
+            
+          </div>
+          <br>
+          <div id = "listOfDateButtons" class="buttons"></div>
+    </div>
+</section>
 
-        <section class="section">
-            <div class="container">
-            <div class="column is-two-thirds">
-            <div id="newsFeed"></div> 
-            </div> 
-        </div>
-        </section>
+<section class="section">
+  <div class="container">
+      <div class="column is-half is-offset-one-quarter">
+          <div id="newsFeed">
+            <div id="abc">
+              <!-- Popup Div Starts Here -->
+              <!-- Popup Div Ends Here -->
+              </div>
+          </div> 
+      </div> 
+  </div>
+</section> 
 
         <?php 
 
-            /* 
-            if(isset($_GET['tickerSumbit'])) {
-                $ticker = $_GET['ticker'];
 
-                if($ticker) {
-                    echo '<script type="text/javascript"> alert("Ticker Entered") </script>';
-
-                }
-            
-            }
-            */ 
-
-            /*
-
-            if(isset($_POST['tickerSubmit'])) {
-                echo "Banter";
-                echo '<script type="text/javascript"> alert("Article Saved") </script>';
-            }
-            */
-
-            if(isset($_POST['logout'])) {
-                session_destroy();
-                header('location:register.php');
-            }
-
-            
-
-            if(isset($_POST['saveArticle'])) {
+            if(isset($_GET['saveArr'])) {
                 $username = $_SESSION['username'];
-                $article1 = $_POST['articleTest'];
+                //$article1 = $_POST['saveArticle'];
+                $arr = $_GET['saveArr'];
+                $comment = $arr[3];
+                
+                
+                //echo $_SESSION['comment'];
+                //$arr = explode(",", $article1);
+                $ticker = $arr[0];
+                $date = $arr[1];
+                $article1= $arr[2];
+                //echo $comment;
                 //$query = "insert into userInfoTable values('$article1')";
                 $query = "update userInfoTable set article1='$article1' where username='$username'";
+                
+                $query = "select * from allSaved where username='$username' AND ticker='$ticker' AND date='$date' AND article='$article1')";
                 $queryRun = mysqli_query($con, $query);
-
-                    if($query) {
-                        echo '<script type="text/javascript"> alert("Article Saved") </script>';
-                        $_SESSION['article1']=$article1;
-                        header("Refresh:0");
-
-
+                    if(mysqli_num_rows($queryRun)>0) {
+                        echo '<script type="text/javascript"> alert("Article Already Saved") </script>';
+                        
+                        //$_SESSION['article1']=$article1;
                     } else {
-                        echo '<script type="text/javascript"> alert("Unsuccessful") </script>';
+                        $query = "insert into allSaved values('$username', '$ticker', '$date', '$article1', '$comment')";
+                        $queryRun = mysqli_query($con, $query);
+                        echo '<script type="text/javascript"> alert("Article Saved") </script>';
+                        
 
                     }
             }
-            
 
             if(isset($_GET['save'])) {
                 $result = $_GET['save']; 

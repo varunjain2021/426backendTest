@@ -12,7 +12,7 @@
     <link rel="stylesheet" type=text/css href="style.css">
 
 </head>
-<body style = "background-color: #e8c97e">
+<body style = "background-color: #add8e6">
     <div class=background>
         <center><h2>Registration Form</h2>
         <form action="rr.php" method="post">
@@ -50,8 +50,8 @@
 
                     if($query) {
                         echo '<script type="text/javascript"> alert("User Registered") </script>';
-                        $query = "insert into userTickers values('$username', '$var', '$var', '$var', '$var', '$var')";
-                        $queryRun = mysqli_query($con, $query);
+                        //$query = "insert into userTickers values('$username', '$var', '$var', '$var', '$var', '$var')";
+                        //$queryRun = mysqli_query($con, $query);
 
                     } else {
                         echo '<script type="text/javascript"> alert("Unsuccessful") </script>';

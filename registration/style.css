@@ -24,7 +24,7 @@
     padding: 5px;
     border-radius: 5px;
     border-style: hidden;
-    background-color: lightblue;
+    background-color: #add8e6;
     
 
 
@@ -135,4 +135,17 @@
 .linksA {
     font-size: small;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.box {
+    background-color: lightblue;
+}
+
+.editComment{
+    float: right;
+    margin: 5px;
+}
+.modal-background{
+    opacity: 0.2;
 }
