@@ -47,8 +47,11 @@
             if ($newUsername==$confirmNewUsername) {
                 $query = "update userInfoTable set username='$newUsername' where username='$username'";
                 $queryRun = mysqli_query($con, $query);
+                $query = "update allSaved set username='$newUsername' where username='$username'";
+                $queryRun = mysqli_query($con, $query);
                 $_SESSION['username']=$newUsername;
-                header('location:watchList.php');
+                $session_destroy();
+                header('location:register.php');
                 header("Refresh:0");
             } else {
                 echo '<script type="text/javascript"> alert("New Username does not match to Confirm Username") </script>';

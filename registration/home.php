@@ -23,19 +23,21 @@
             <center ><h5 class="title has-text-info is-family-secondary">Welcome
             <?php echo $_SESSION['username']
             ?></h5 > </center>
-            <h1 class="title has-text-info is-family-secondary">Helping Traders Filter For Stock Specific News</h1>
-            <h5 class="subtitle has-text-grey is-italic">Find the news that matters</h5>
+            <h1 class="title has-text-info is-family-secondary is-1">StockFeed</h1>
+            <h5 class="subtitle has-text-grey is-italic">Helping Traders Filter For Stock Specific News</h5>
+            <p>Use search bar below to filter for the articles based on a percentage price change in a stock's price!</p> 
+            
         </div>
         <div class="tabs is-medium is-centered">
             <ul>
               <li><a>News Feed Search</a></li>
               <li><a href="watchList.php" id="clearNews">Profile</a></li>
-              <li><a href="newsFeed.php" id="everyone">News Feed</a></li>
+              <li><a href="newsFeed.php" id="everyone">Popular Stocks</a></li>
             </ul>
         </div>
         <div class="field has-addons has-addons-centered">
             <p class="control">
-                <input class = "input" placeholder = "% Change in Price" id = "determineChange">
+                <input class = "input" placeholder = "% Change in Price (eg. 3)" id = "determineChange" style="width: 215px">
                 <!--
               <span class="select">
                 <select placeholder = "% Change in Price" id = "determineChange">
@@ -53,19 +55,21 @@
               -->
             </p>
             <p class="control" id = "crazyVibes" >
-              <input class="input" type="text" placeholder="Stock Ticker (eg. AAPL)" id = "ticker" required/>
+              <input class="input" type="text" placeholder="Stock Ticker (eg. AAPL)" id = "ticker" style="width: 250px" required/>
               <div id = "mo"></div>
             </p>
             
             <p class="control">
-              <a class="button is-primary" id="findDate">
+              <a class="button is-primary" id="findDate" style="width: 215px">
                 Search For News
               </a>
             </p>
             
           </div>
           <br>
+          <center>
           <div id = "listOfDateButtons" class="buttons"></div>
+          </center>
     </div>
 </section>
 

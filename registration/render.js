@@ -131,7 +131,7 @@
         //const myKey = "480cae414ceb43cbab94d9ab001bd7ec"
     
         // SERVER RUN
-        const myKey = "272533aa46f5b0b7ea7d991ba32cba62"
+        const myKey = "58066874211fc9b8944837531d09d4c5"
     
         let ticker = document.getElementById('ticker').value;
         let valuesForPHP = []

@@ -26,14 +26,14 @@
                 <center ><h5 class="title has-text-info is-family-secondary">Welcome
                 <?php echo $_SESSION['username']
                 ?></h5 > </center>
-                <h1 class="title has-text-info is-family-secondary">Helping Traders Filter For Stock Specific News</h1>
-                <h5 class="subtitle has-text-grey is-italic">Find the news that matters</h5>
+                <h1 class="title has-text-info is-family-secondary is-1">StockFeed</h1>
+                <h5 class="subtitle has-text-grey is-italic">Helping Traders Filter For Stock Specific News</h5>
             </div>
             <div class="tabs is-medium is-centered">
                 <ul>
                     <li><a href="home.php">News Feed Search</a></li>
                     <li><a>Profile</a></li>
-                    <li><a href="newsFeed.php" id="everyone">News Feed</a></li>
+                    <li><a href="newsFeed.php" id="everyone">Popular Stocks</a></li>
                 </ul>
             </div>
             <center>
@@ -72,24 +72,33 @@
                                      <p>'.$field1name.'</p>
                                     <p>'.$field2name.'</p>
                                     <p><a href='.$field3name.'>Link To Article</a></p>
+                                    
                                     <button class="delete" value="Delete" type="button" id='.$x.' name="'.$temp.'"></button>
+                                    
                                 </div>
-                                <div name='.$x.' class="message-body">
+                                <div name='.$x.' class="message-body" style="align-text:center">
+                                
                                 '.$field4name.'
+                                
+                                
                                 </div>
-                                    <button type="button" id='.$x.' class="editComment" name="'.$temp.'">Edit</button>
+                                <div>
+                                <button type="button" id='.$x.' class="editComment" name="'.$temp.'" >Edit</button>
+                                </div>
+                                    
+                                
                             </article>';
                         $x=$x+1;
                     }
                 
         
                 ?></h3>
-
-                <br><input name="logout" type="submit" class="logoutButton" value="Logout"/>
+                <section>
+                <br><br><input name="logout" type="submit" class="logoutButton" value="Logout"/>
                 <br><br><a href="changePassword.php"><input name="changePassword" type="button" class="changePword" value="Change Password"/></a>
                 <br><br><a href="changeUsername.php"><input name="changeUsername" type="button" class="changePword" value="Change Username"/></a>
                 <br><br><a href="deleteConfirm.php"><input name="deleteUser" type="button" class="back" value="Delete Account"/></a>
-
+                </section>
             </form>
             
         </center>
@@ -111,7 +120,6 @@
         let x = e.target.id
         let y = e.target.name
 
-        console.log(y)
         $(`#${x}`).append(`<form id="editForm" action="home.php" method="post">
             <div class="box">
                 <div class="control">
@@ -123,32 +131,29 @@
                 <button id="closeEdit" name="${x}" class="button" type="button">Cancel</button>
             </div>
           </form>`)
-        $(`#${x}`).prop('disabled', true);
+        $(`button[class="editComment"][id="${x}"]`).prop('disabled', true);
           
     }
 
     function cancelEdit(e) {
 
         let y = e.target.name
-        
 
         $('#editForm').remove();
-        $(`#${y}`).prop('disabled', false);
+        $(`button[class="editComment"][id="${y}"]`).prop('disabled', false);
 
     }
 
     function submitEdit(e) {
         let y = e.target.value;
         let x = e.target.name;
-        let oldCom = $(`div[class="message-body"][name="${x}"]`).text()
-        console.log(oldCom)
+        //let oldCom = $(`div[class="message-body"][name="${x}"]`).text()
         let newCom = document.getElementById('commentNew').value;
+        console.log(newCom)
 
         let arr=y.split(',');
      
-        $(`div[class="message-body"][name="${x}"]`).replaceWith(`<div name='${y}' class="message-body"> 
-                                ${newCom}
-                                </div>`);
+        
         //console.log(bet);
         arr[4] = newCom;
         //arr[3] = oldCom;
@@ -163,8 +168,12 @@
             }
         }); 
 
+        $(`div[class="message-body"][name="${x}"]`).replaceWith(`<div name='${y}' class="message-body"> 
+                                ${newCom}
+                                </div>`);
+
         $('#editForm').remove();
-        $(`#${x}`).prop('disabled', false);
+        //$(`button[class="editComment"][name="${x}"]`).prop('disabled', false);
         //header("Refresh:0")
 
     }
@@ -212,7 +221,7 @@
 
     if(isset($_POST['logout'])) {
         session_destroy();
-        echo "<script>window.location.href='/registration/register.php'</script>";
+        echo "<script>window.location.href='/register.php'</script>";
         //header('location:register.php');
         
     }
@@ -227,8 +236,8 @@
         $article= $arr[2];
         $oldComment = $arr[3];
 
-        $query = "update allSaved set comment='$newComment' where comment='$oldComment' AND article='$article' AND username='$username' AND ticker='$ticker' AND date='$date'";
-                
+        //$query = "update allSaved set comment='$newComment' where comment='$oldComment' AND article='$article' AND username='$username' AND ticker='$ticker' AND date='$date'";
+        $query = "update allSaved set comment='$newComment' where comment='$oldComment'";    
         $queryRun = mysqli_query($con, $query);
             if($queryRun) {
                 echo '<script type="text/javascript"> alert("Comment Updates") </script>';
@@ -250,6 +259,7 @@
         $query = "delete from allSaved where comment='$oldComment' AND article='$article' AND username='$username' AND ticker='$ticker' AND date='$date'";
                 
         $queryRun = mysqli_query($con, $query);
+
             if($queryRun) {
                 echo '<script type="text/javascript"> alert("Comment Deleted") </script>';
             } else {

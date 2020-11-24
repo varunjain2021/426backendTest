@@ -23,17 +23,17 @@
     <section class="section">
         <div class="container">
             <div class="content has-text-centered">
-                <center ><h5 class="title has-text-info is-family-secondary">Welcome
+                <center ><h5 class="title has-text-info is-family-secondary ">Welcome
                 <?php echo $_SESSION['username']
                 ?></h5 > </center>
-                <h1 class="title has-text-info is-family-secondary">Helping Traders Filter For Stock Specific News</h1>
-                <h5 class="subtitle has-text-grey is-italic">Find the news that matters</h5>
+                <h1 class="title has-text-info is-family-secondary is-1">StockFeed</h1>
+                <h5 class="subtitle has-text-grey is-italic">Helping Traders Filter For Stock Specific News</h5>
             </div>
             <div class="tabs is-medium is-centered">
                 <ul>
                     <li><a href="home.php">News Feed Search</a></li>
                     <li><a href="watchList.php">Profile</a></li>
-                    <li><a>News Feed</a></li>
+                    <li><a>Popular Stocks</a></li>
                 </ul>
             </div>
             <center>
@@ -45,7 +45,7 @@
                 <?php 
                 $username = $_SESSION['username'];
                 //$sql = "select article1 from userInfoTable where username='$username'";
-                $sql = "select ticker, date from allSaved";
+                $sql = "select username, ticker, date from allSaved";
 
                 //$queryRun = mysqli_query($con, $sql);
 
@@ -63,6 +63,7 @@
                     while ($row = $result->fetch_assoc()) {
                         $field1name = $row["ticker"];
                         $field2name = $row["date"];
+                        $field3name = $row["username"];
 
                         //$temp = $field1name.",".$field2name.",".$field4name;
 
@@ -70,6 +71,7 @@
                                 <div class="message-header">
                                      <p>'.$field1name.'</p>
                                     <p>'.$field2name.'</p>
+                                    <p>'.$field3name.'</p>
 
                                 </div>
                             </article>';
